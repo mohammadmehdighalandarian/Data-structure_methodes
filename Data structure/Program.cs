@@ -128,6 +128,7 @@ Delete(Front);
 
 
 //Add in circle Queue
+//O(1)
 int CFront = 0;
 int CRear = queue.Length - 1;
 
@@ -146,6 +147,7 @@ int CAdd(string item, int CRear)
 CRear = CAdd("B", CRear);
 
 //Delete in queue
+//O(1)
 int CDel(int Front)
 {
     if (CFront == CRear)
@@ -160,4 +162,41 @@ int CDel(int Front)
 }
 
 CDel(CFront);
+
+
+
+//ADD in Stack
+//O(1)
+int[]stack=new int[20];
+int top = -1;
+
+void Push(ref int top, int item)
+{
+    if (top == stack.Length - 1)
+    {
+        Console.WriteLine("stack is Full");
+        return;
+    }
+    stack[++top] = item;
+    return;
+}
+
+Push(ref top,5);
+
+//Pop in stack
+//O(1)
+void Pop(ref int top)
+{
+    if (top == -1)
+    {
+        Console.WriteLine("Stack is Empty!!");
+        return;
+    }
+
+    stack[top] = 0;
+    top--;
+}
+
+Pop(ref top);
+
 Console.ReadKey();
